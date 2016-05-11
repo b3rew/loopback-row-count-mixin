@@ -1,0 +1,25 @@
+{
+  "name": "loopback-row-count-mixin",
+  "version": "0.1.0",
+  "description": "A mixin to get total count of a model for a loopback Model.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b3rew/loopback-row-count-mixin.git"
+  },
+  "keywords": [
+    "loopback",
+    "strongloop",
+    "mixin",
+    "pagination",
+    "count"
+  ],
+  "author": "b3rew <brkt13@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/b3rew/loopback-row-count-mixin/issues"
+  },
+  "homepage": "https://github.com/b3rew/loopback-row-count-mixin#readme",
+  "devDependencies": {}
+}
