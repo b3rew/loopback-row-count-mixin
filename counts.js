@@ -14,7 +14,7 @@ module.exports = function RowCount (Model) {
     totalCount(function(count){
         ctx.result = {
           count: count,
-          records: resources       
+          rows: resources       
         }
         return next();
     })
@@ -23,10 +23,11 @@ module.exports = function RowCount (Model) {
   function totalCount(done){
     Model.count().then(function (count) {
         done(count)
-    }).catch(function(){
+    }).catch(function(e){
        console.log("Unable to count!");
        throw e;
     });
   }
 };
+
 
