@@ -7,9 +7,7 @@ A mixin to get total count of a model for a loopback Model.
 npm install --save loopback-row-count-mixin
 ```
 
-There are 2 ways to enable mixin:
-
-### 1) server.js
+###### you can enable mixin by editing `server.js`:
 
 In your server/server.js file add the following line before the boot(app, __dirname); line.
 
@@ -30,29 +28,6 @@ boot(app, __dirname, function(err) {
 });
 ```
 
-### 2) mixin sources
-
-Add the mixins property to your server/model-config.json like the following:
-
-```json
-{
-  "_meta": {
-    "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
-      "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../node_modules/loopback-row-count-mixin",
-      "../common/mixins",
-      "./mixins"
-    ]
-  }
-}
-```
 
 ## CONFIG
 
