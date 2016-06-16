@@ -1,8 +1,6 @@
 module.exports = function RowCount (Model) {
   'use strict';
 
-  Model.afterRemote('findById', injectCounts);
-  Model.afterRemote('findOne', injectCounts);
   Model.afterRemote('find', injectCounts);
 
   function injectCounts (ctx, unused, next) {
@@ -11,22 +9,27 @@ module.exports = function RowCount (Model) {
     if (!resources.length) {
       return next();
     }
-    totalCount(function(count){
-        ctx.result = {
-          count: count,
-          rows: resources       
+    var filter = ctx.args && ctx.args.filter && ctx.args.filter.where ? ctx.args.filter.where : {};
+    totalCount(filter, function(err, count){
+        if(!err){
+            ctx.result = {
+                count: count,
+                rows: resources
+            };
+        }else{
+            console.log(err);
+            return next(err);
         }
+
         return next();
     })
   }
 
-  function totalCount(done){
-    Model.count().then(function (count) {
-        done(count)
-    }).catch(function(e){
-       console.log("Unable to count!");
-       throw e;
-    });
+  function totalCount(filter, done){
+        Model.count(filter, function(err, count) {
+            if(!err) return done(null, count)
+            else return done("Unable to count: "+ err)
+        })
   }
 };
 
