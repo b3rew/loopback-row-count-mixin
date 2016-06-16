@@ -1,12 +1,18 @@
 module.exports = function RowCount (Model) {
   'use strict';
 
+  // Model.afterRemote('findById', injectCounts);
+  // Model.afterRemote('findOne', injectCounts);
   Model.afterRemote('find', injectCounts);
 
   function injectCounts (ctx, unused, next) {
     var resources = ctx.result;
     if (!Array.isArray(resources)) resources = [resources];
     if (!resources.length) {
+        ctx.result = {
+            count: 0,
+            rows: []
+        };
       return next();
     }
     var filter = ctx.args && ctx.args.filter && ctx.args.filter.where ? ctx.args.filter.where : {};
@@ -17,7 +23,6 @@ module.exports = function RowCount (Model) {
                 rows: resources
             };
         }else{
-            console.log(err);
             return next(err);
         }
 
