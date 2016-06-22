@@ -1,6 +1,6 @@
 {
   "name": "loopback-row-count-mixin",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A mixin to get total count of a model for a loopback Model.",
   "main": "index.js",
   "scripts": {},

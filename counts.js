@@ -15,7 +15,10 @@ module.exports = function RowCount (Model) {
         };
       return next();
     }
-    var filter = ctx.args && ctx.args.filter && ctx.args.filter.where ? ctx.args.filter.where : {};
+    var args = ctx.args && ctx.args.filter && typeof ctx.args.filter == 'string'?JSON.parse(ctx.args.filter):{};
+    args = ctx.args && ctx.args.filter && typeof ctx.args.filter == 'object'?ctx.args.filter:args;
+
+    var filter = args && args.where ? args.where : {};
     totalCount(filter, function(err, count){
         if(!err){
             ctx.result = {
@@ -23,6 +26,7 @@ module.exports = function RowCount (Model) {
                 rows: resources
             };
         }else{
+            console.log(err);
             return next(err);
         }
 
@@ -32,7 +36,7 @@ module.exports = function RowCount (Model) {
 
   function totalCount(filter, done){
         Model.count(filter, function(err, count) {
-            if(!err) return done(null, count)
+            if(!err) return done(null, count);
             else return done("Unable to count: "+ err)
         })
   }
