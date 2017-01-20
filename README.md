@@ -1,5 +1,5 @@
 # loopback-row-count-mixin
-A mixin to get total count of a model for a loopback Model.
+A mixin to get total count of a model for pagination in a loopback Model.
 
 ## INSTALL
 
@@ -54,7 +54,7 @@ To use with your Models add the `mixins` attribute to the definition object of y
 http://0.0.0.0:3000/api/players
 ```
 
-will return list of players with field
+will return list of players with field to help for you pagination
 
 ```json
 {
