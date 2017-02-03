@@ -41,7 +41,7 @@ To use with your Models add the `mixins` attribute to the definition object of y
     "type": "string",
   },
   "mixins": {
-    "RowCount": {}
+    "RowCount": true
   }
 }
 ```
@@ -60,7 +60,7 @@ To use with your Models add the `mixins` attribute to the definition object of y
     "type": "string",
   },
   "mixins": {
-    "RowCount": {}
+    "RowCount": true
   }
 }
 ```
@@ -136,4 +136,3 @@ will return list of players with field
 ## LICENSE
 
 MIT
-
