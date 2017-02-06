@@ -50,21 +50,6 @@ To use with your Models add the `mixins` attribute to the definition object of y
 
 ### EXAMPLE
 
-##### Default
-
-```json
-{
-  "name": "player",
-  "properties": {
-    "name": "string",
-    "type": "string",
-  },
-  "mixins": {
-    "RowCount": true
-  }
-}
-```
-
 ```
 http://0.0.0.0:3000/api/players
 ```
@@ -90,49 +75,7 @@ will return list of players with field
 
 ```
 
-##### Customize
-
-```json
-{
-  "name": "player",
-  "properties": {
-    "name": "string",
-    "type": "string",
-  },
-  "mixins": {
-    "RowCount": {
-      "count": "total",
-      "rows" : "results"
-    }
-  }
-}
-```
-
-```
-http://0.0.0.0:3000/api/players
-```
-
-will return list of players with field
-
-```json
-{
-    "total": 2,
-    "results": [
-      {
-        "id": 1,
-        "title": "First player",
-        "type": ""
-      },
-      {
-        "id": 2,
-        "title": "Second player",
-        "type": ""
-      }
-    ]
-}
-
-```
-
 ## LICENSE
 
 MIT
+
