@@ -46,6 +46,24 @@ To use with your Models add the `mixins` attribute to the definition object of y
 }
 ```
 
+To add the model count to header as `X-Total-Count` to the resopnse
+
+
+```json
+{
+  "name": "player",
+  "properties": {
+    "name": "string",
+    "type": "string",
+  },
+  "mixins": {
+    "RowCount": {
+      header: true
+    }
+  }
+}
+```
+
 ## USAGE
 
 ### EXAMPLE
